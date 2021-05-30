@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "751722307706",
+    "project_id": "technohealthcare-6b4e2",
+    "storage_bucket": "technohealthcare-6b4e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751722307706:android:d5088e04a0e7896b7a5bc3",
+        "android_client_info": {
+          "package_name": "con.techno.health_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751722307706-67f8d8vhn3o3lumrl8c30r0k72nhk1ka.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "con.techno.health_care",
+            "certificate_hash": "b7dbe9f5655e8d947fdd5361a285289bda072f4f"
+          }
+        },
+        {
+          "client_id": "751722307706-gr6s8fsennp51d6m7o2eb9tua6f6is7c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB24SqbC-GY517lO3XEOKW6CexrWtdaGzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751722307706-gr6s8fsennp51d6m7o2eb9tua6f6is7c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
