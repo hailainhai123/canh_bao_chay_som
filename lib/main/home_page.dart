@@ -206,7 +206,7 @@ class _HomePageState extends State<HomePage>
     return InkWell(
       onTap: () async {
         selectedIndex = index;
-        Department d = Department('', khoa, Constants.mac);
+        Department d = Department('', khoa,'', Constants.mac);
         pubTopic = LOGIN_DEVICE;
         publishMessage(pubTopic, jsonEncode(d));
         showLoadingDialog();
@@ -293,7 +293,7 @@ class _HomePageState extends State<HomePage>
         departments = response.id.map((e) => Department.fromJson(e)).toList();
         dropDownItems.clear();
         departments.forEach((element) {
-          dropDownItems.add(element.mavitri);
+          dropDownItems.add(element.madiadiem);
         });
         hideLoadingDialog();
         print('_DeviceListScreenState.handleDevice ${dropDownItems.length}');
@@ -307,7 +307,7 @@ class _HomePageState extends State<HomePage>
         tbs = response.id.map((e) => ThietBi.fromJson(e)).toList();
         dropDownItems.clear();
         tbs.forEach((element) {
-          dropDownItems.add(element.mathietbi);
+          dropDownItems.add(element.matb);
         });
         setState(() {});
         hideLoadingDialog();

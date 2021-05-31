@@ -11,7 +11,7 @@ class DepartmentListDialog extends StatefulWidget {
 }
 
 class _DepartmentListDialogState extends State<DepartmentListDialog> {
-  Department department = Department('vitri', 'mavitri', '');
+  Department department = Department('vitri', 'mavitri','sdt', '');
   List<Department> departments = List();
 
   @override
@@ -47,10 +47,13 @@ class _DepartmentListDialogState extends State<DepartmentListDialog> {
       child: Row(
         children: [
           Text(
-            department.mavitri,
+            department.madiadiem,
           ),
           Text(
-            department.vitri,
+            department.departmentDiachiDecode,
+          ),
+          Text(
+            department.sdtdiadiem,
           ),
         ],
       ),

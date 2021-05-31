@@ -23,7 +23,7 @@ class AddScreen extends StatefulWidget {
 }
 
 class _AddScreenState extends State<AddScreen> {
-  static const GET_DEPARTMENT = 'loginkhoa';
+  static const GET_DEPARTMENT = 'logindiadiem';
 
   MQTTClientWrapper mqttClientWrapper;
   SharedPrefsHelper sharedPrefsHelper;
@@ -34,7 +34,7 @@ class _AddScreenState extends State<AddScreen> {
 
   @override
   void initState() {
-    // showLoadingDialog();
+    showLoadingDialog();
     initMqtt();
     super.initState();
   }
@@ -44,7 +44,7 @@ class _AddScreenState extends State<AddScreen> {
         MQTTClientWrapper(() => print('Success'), (message) => handle(message));
     await mqttClientWrapper.prepareMqttClient(Constants.mac);
 
-    Department d = Department('', '', Constants.mac);
+    Department d = Department('', '','', Constants.mac);
     publishMessage(GET_DEPARTMENT, jsonEncode(d));
   }
 
@@ -68,7 +68,7 @@ class _AddScreenState extends State<AddScreen> {
       width: double.infinity,
       child: Column(
         children: [
-          buildButton('Thêm vị trí', Icons.meeting_room_outlined, 3),
+          buildButton('Thêm địa điểm ', Icons.meeting_room_outlined, 3),
           // horizontalLine(),
           // buildButton('Thêm tài khoản', Icons.account_box_outlined, 1),
           horizontalLine(),
@@ -167,7 +167,7 @@ class _AddScreenState extends State<AddScreen> {
     departments = response.id.map((e) => Department.fromJson(e)).toList();
     dropDownItems.clear();
     departments.forEach((element) {
-      dropDownItems.add(element.vitri);
+      dropDownItems.add(element.madiadiem);
     });
     hideLoadingDialog();
     print('_AddScreenState.handle ${dropDownItems.length}');

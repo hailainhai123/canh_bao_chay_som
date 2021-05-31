@@ -17,8 +17,8 @@ class DeviceListScreen extends StatefulWidget {
 }
 
 class _DeviceListScreenState extends State<DeviceListScreen> {
-  static const GET_DEPARTMENT = 'loginkhoa';
-  static const LOGIN_DEVICE = 'loginthietbi';
+  static const GET_DEPARTMENT = 'logindiadiem';
+  static const LOGIN_DEVICE = 'gettb';
 
   final GlobalKey<State> _keyLoader = new GlobalKey<State>();
 
@@ -30,12 +30,12 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
   List<Department> departments = List();
   var dropDownItems = [''];
 
-  bool isLoading = false;
+  bool isLoading = true;
 
   @override
   void initState() {
-    tbs.add(ThietBi('a','b','c','50','e','d','trần nhà',));
     initMqtt();
+    // isLoading = false;
     super.initState();
   }
 
@@ -47,19 +47,10 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
   }
 
   void getDevices() async {
-    // ThietBi t = ThietBi('', '', '', '', '', Constants.mac,'');
-    // pubTopic = LOGIN_DEVICE;
-    // publishMessage(pubTopic, jsonEncode(t));
-    // showLoadingDialog();
-    tbs = [
-      ThietBi('a','b','c','','','','',),
-      ThietBi('a','b','c','','','','',),
-      ThietBi('a','b','c','','','','',),
-      ThietBi('a','b','c','','','','',),
-    ];
-    setState(() {
-
-    });
+    ThietBi t = ThietBi('', '', '', '', '', Constants.mac, '');
+    pubTopic = LOGIN_DEVICE;
+    publishMessage(pubTopic, jsonEncode(t));
+    showLoadingDialog();
   }
 
   Future<void> publishMessage(String topic, String message) async {
@@ -186,7 +177,7 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
     return InkWell(
       onTap: () async {
         selectedIndex = index;
-        Department d = Department('', '', Constants.mac);
+        Department d = Department('', '', '', Constants.mac);
         pubTopic = GET_DEPARTMENT;
         publishMessage(pubTopic, jsonEncode(d));
         showLoadingDialog();
@@ -201,9 +192,9 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
                 children: [
                   buildTextData('${index + 1}', 1),
                   verticalLine(),
-                  buildTextData(tbs[index].mathietbi, 4),
+                  buildTextData(tbs[index].matb, 4),
                   verticalLine(),
-                  buildTextData('${tbs[index].nguong}\u2103', 2),
+                  buildTextData('${tbs[index].nguongcb}\u2103', 2),
                   verticalLine(),
                   buildTextData('${tbs[index].vitri}', 2),
                 ],
@@ -281,7 +272,7 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
         departments = response.id.map((e) => Department.fromJson(e)).toList();
         dropDownItems.clear();
         departments.forEach((element) {
-          dropDownItems.add(element.mavitri);
+          dropDownItems.add(element.madiadiem);
         });
         hideLoadingDialog();
         print('_DeviceListScreenState.handleDevice ${dropDownItems.length}');

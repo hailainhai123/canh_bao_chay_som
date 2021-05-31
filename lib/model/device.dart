@@ -29,6 +29,7 @@ class Device {
   @ColumnInfo(name: 'khoa', nullable: false)
   String khoa;
   bool isEnable = false;
+  var color;
 
   String get tentbDecode {
     try {

@@ -38,6 +38,7 @@ class _AddDeviceScreenState extends State<AddDeviceScreen> {
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,12 +70,6 @@ class _AddDeviceScreenState extends State<AddDeviceScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                buildTextField(
-                  'Tên thiết bị',
-                  Icon(Icons.email),
-                  TextInputType.text,
-                  nameController,
-                ),
                 idDeviceContainer(
                   'Mã thiết bị *',
                   Icon(Icons.vpn_key),
@@ -87,7 +82,13 @@ class _AddDeviceScreenState extends State<AddDeviceScreen> {
                   TextInputType.text,
                   vitriController,
                 ),
-                // buildDepartment('Khoa *'),
+                buildTextField(
+                  'Ngưỡng cảnh báo',
+                  Icon(Icons.email),
+                  TextInputType.text,
+                  nameController,
+                ),
+                buildDepartment('Mã địa điểm *'),
                 buildButton(),
               ],
             ),
@@ -207,12 +208,12 @@ class _AddDeviceScreenState extends State<AddDeviceScreen> {
       idController.text,
       currentSelectedValue,
       '',
-      '',
+      nameController.text,
       '',
       Constants.mac,
       vitriController.text,
     );
-    publishMessage('registerthietbi', jsonEncode(tb));
+    publishMessage('registertb', jsonEncode(tb));
   }
 
   Widget buildDepartment(String label) {
@@ -251,7 +252,7 @@ class _AddDeviceScreenState extends State<AddDeviceScreen> {
     return Container(
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          hint: Text("Chọn khoa"),
+          hint: Text("Chọn địa điểm"),
           value: currentSelectedValue,
           isDense: true,
           onChanged: (newValue) {

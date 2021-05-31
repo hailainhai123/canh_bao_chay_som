@@ -27,15 +27,14 @@ class EditDeviceDialog extends StatefulWidget {
 }
 
 class _EditDeviceDialogState extends State<EditDeviceDialog> {
-  static const UPDATE_DEVICE = 'updatethietbi';
-  static const DELETE_DEVICE = 'deletethietbi';
+  static const UPDATE_DEVICE = 'updatetb';
+  static const DELETE_DEVICE = 'deletetb';
 
   final GlobalKey<State> _keyLoader = new GlobalKey<State>();
   final scrollController = ScrollController();
   final idController = TextEditingController();
   final thresholdController = TextEditingController();
   final vitriController = TextEditingController();
-
   final timeController = TextEditingController();
 
   MQTTClientWrapper mqttClientWrapper;
@@ -73,10 +72,10 @@ class _EditDeviceDialogState extends State<EditDeviceDialog> {
   }
 
   void initController() async {
-    idController.text = widget.thietbi.mathietbi;
-    currentSelectedValue = widget.thietbi.makhoa;
+    idController.text = widget.thietbi.matb;
+    currentSelectedValue = widget.thietbi.madiadiem;
     timeController.text = widget.thietbi.thoigian;
-    thresholdController.text = widget.thietbi.nguong;
+    thresholdController.text = widget.thietbi.nguongcb;
     vitriController.text = widget.thietbi.vitri;
   }
 
@@ -115,13 +114,7 @@ class _EditDeviceDialogState extends State<EditDeviceDialog> {
                   TextInputType.number,
                   vitriController,
                 ),
-                buildTextField(
-                  'Thời gian',
-                  Icon(Icons.vpn_key),
-                  TextInputType.number,
-                  timeController,
-                ),
-                // buildDepartment(),
+                buildDepartment(),
                 deleteButton(),
                 buildButton(),
               ],
@@ -154,7 +147,7 @@ class _EditDeviceDialogState extends State<EditDeviceDialog> {
         children: [
           Expanded(
             child: Text(
-              'Mã khoa',
+              'Mã địa điểm',
             ),
           ),
           Expanded(
@@ -169,7 +162,7 @@ class _EditDeviceDialogState extends State<EditDeviceDialog> {
     return Container(
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          hint: Text("Chọn khoa"),
+          hint: Text("Chọn địa điểm"),
           value: currentSelectedValue,
           isDense: true,
           onChanged: (newValue) {
@@ -259,8 +252,15 @@ class _EditDeviceDialogState extends State<EditDeviceDialog> {
                 new FlatButton(
                   onPressed: () {
                     pubTopic = DELETE_DEVICE;
-                    var d = ThietBi(widget.thietbi.mathietbi,
-                        widget.thietbi.makhoa, '', '', '', Constants.mac,widget.thietbi.vitri,);
+                    var d = ThietBi(
+                      widget.thietbi.matb,
+                      widget.thietbi.madiadiem,
+                      '',
+                      '',
+                      '',
+                      Constants.mac,
+                      widget.thietbi.vitri,
+                    );
                     publishMessage(pubTopic, jsonEncode(d));
                   },
                   child: new Text(

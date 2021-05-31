@@ -178,7 +178,7 @@ class _UserListScreenState extends State<UserListScreen> {
     return InkWell(
       onTap: () async {
         selectedIndex = index;
-        Department d = Department('', '', Constants.mac);
+        Department d = Department('', '','', Constants.mac);
         pubTopic = GET_DEPARTMENT;
         publishMessage(pubTopic, jsonEncode(d));
         showLoadingDialog();
@@ -248,7 +248,7 @@ class _UserListScreenState extends State<UserListScreen> {
         departments = response.id.map((e) => Department.fromJson(e)).toList();
         dropDownItems.clear();
         departments.forEach((element) {
-          dropDownItems.add(element.mavitri);
+          dropDownItems.add(element.madiadiem);
         });
         hideLoadingDialog();
         await showDialog(

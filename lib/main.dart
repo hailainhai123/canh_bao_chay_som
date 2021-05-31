@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Health Care',
       home: SafeArea(
-        // child: SplashScreen(),
-        child: HomeScreen(),
+        child: SplashScreen(),
+        // child: HomeScreen(),
       ),
     );
   }

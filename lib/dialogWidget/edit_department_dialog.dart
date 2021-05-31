@@ -24,12 +24,13 @@ class EditDepartmentDialog extends StatefulWidget {
 }
 
 class _EditDepartmentDialogState extends State<EditDepartmentDialog> {
-  static const UPDATE_KHOA = 'updatekhoa';
-  static const DELETE_KHOA = 'deletekhoa';
+  static const UPDATE_KHOA = 'updatediadiem';
+  static const DELETE_KHOA = 'deletediadiem';
 
   final scrollController = ScrollController();
   final nameController = TextEditingController();
   final idController = TextEditingController();
+  final sdtController = TextEditingController();
   bool update = false;
   String pubTopic;
   MQTTClientWrapper mqttClientWrapper;
@@ -43,8 +44,10 @@ class _EditDepartmentDialogState extends State<EditDepartmentDialog> {
   }
 
   void initController() async {
-    nameController.text = widget.department.departmentNameDecode;
-    idController.text = widget.department.mavitri;
+    nameController.text = widget.department.departmentDiachiDecode;
+    idController.text = widget.department.madiadiem;
+    sdtController.text = widget.department.sdtdiadiem;
+
   }
 
   @override
@@ -75,6 +78,12 @@ class _EditDepartmentDialogState extends State<EditDepartmentDialog> {
                   Icon(Icons.vpn_key),
                   TextInputType.visiblePassword,
                   idController,
+                ),
+                buildTextField(
+                  'sdt',
+                  Icon(Icons.vpn_key),
+                  TextInputType.visiblePassword,
+                  sdtController,
                 ),
                 deleteButton(),
                 buildButton(),
@@ -155,8 +164,8 @@ class _EditDepartmentDialogState extends State<EditDepartmentDialog> {
                 new FlatButton(
                   onPressed: () {
                     pubTopic = DELETE_KHOA;
-                    var d = Department(widget.department.vitri,
-                        widget.department.mavitri, Constants.mac);
+                    var d = Department(widget.department.diachidiadiem,
+                        widget.department.madiadiem,widget.department.sdtdiadiem, Constants.mac);
                     publishMessage(pubTopic, jsonEncode(d));
                   },
                   child: new Text(
@@ -209,6 +218,7 @@ class _EditDepartmentDialogState extends State<EditDepartmentDialog> {
                 edittedDepartment = Department(
                   utf8.encode(nameController.text).toString(),
                   idController.text,
+                  sdtController.text,
                   Constants.mac,
                 );
                 pubTopic = UPDATE_KHOA;
@@ -262,6 +272,7 @@ class _EditDepartmentDialogState extends State<EditDepartmentDialog> {
     scrollController.dispose();
     nameController.dispose();
     idController.dispose();
+    sdtController.dispose();
     super.dispose();
   }
 }

@@ -496,7 +496,7 @@ class _LoginPageState extends State<LoginPage> {
                       // switchContainer(),
                       _divider(),
                       _facebookButton(),
-                      // _createAccountLabel(),
+                      _createAccountLabel(),
                     ],
                   ),
                 ),

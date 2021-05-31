@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyBlinkingButton extends StatefulWidget {
+  final String text;
+
+  const MyBlinkingButton({Key key, this.text}) : super(key: key);
+
   @override
   _MyBlinkingButtonState createState() => _MyBlinkingButtonState();
 }
@@ -24,7 +28,7 @@ class _MyBlinkingButtonState extends State<MyBlinkingButton>
       opacity: _animationController,
       child: MaterialButton(
         onPressed: () => null,
-        child: Text("Blinking button"),
+        child: Text(widget.text),
         color: Colors.green,
       ),
     );

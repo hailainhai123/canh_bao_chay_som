@@ -18,6 +18,7 @@ class _AddDepartmentScreenState extends State<AddDepartmentScreen> {
   final scrollController = ScrollController();
   final nameController = TextEditingController();
   final idController = TextEditingController();
+  final sdtController = TextEditingController();
 
   MQTTClientWrapper mqttClientWrapper;
   SharedPrefsHelper sharedPrefsHelper;
@@ -80,16 +81,22 @@ class _AddDepartmentScreenState extends State<AddDepartmentScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 buildTextField(
-                  'Vị trí',
+                  'Mã địa điểm *',
+                  Icon(Icons.vpn_key),
+                  TextInputType.visiblePassword,
+                  idController,
+                ),
+                buildTextField(
+                  'Địa chỉ địa điểm ',
                   Icon(Icons.email),
                   TextInputType.text,
                   nameController,
                 ),
                 buildTextField(
-                  'Mã vị trí *',
+                  'Sdt *',
                   Icon(Icons.vpn_key),
                   TextInputType.visiblePassword,
-                  idController,
+                  sdtController,
                 ),
                 buildButton(),
               ],
@@ -172,9 +179,10 @@ class _AddDepartmentScreenState extends State<AddDepartmentScreen> {
     Department department = Department(
       utf8.encode(nameController.text).toString(),
       idController.text,
+      sdtController.text,
       Constants.mac,
     );
-    publishMessage('registerkhoa', jsonEncode(department));
+    publishMessage('registerdiadiem', jsonEncode(department));
   }
 
   @override
@@ -182,6 +190,7 @@ class _AddDepartmentScreenState extends State<AddDepartmentScreen> {
     scrollController.dispose();
     nameController.dispose();
     idController.dispose();
+    sdtController.dispose();
     super.dispose();
   }
 }

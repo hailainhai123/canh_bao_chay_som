@@ -59,7 +59,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
     khoa = await sharedPrefsHelper.getStringValuesSF('khoa');
     print('_AddPatientScreenState.initMqtt $currentSelectedValue');
 
-    Department d = Department('', khoa, Constants.mac);
+    Department d = Department('','', khoa, Constants.mac);
     pubTopic = LOGIN_DEVICE;
     publishMessage(pubTopic, jsonEncode(d));
     showLoadingDialog();
@@ -78,7 +78,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
         departments = response.id.map((e) => Department.fromJson(e)).toList();
         dropDownItems.clear();
         departments.forEach((element) {
-          dropDownItems.add(element.vitri);
+          dropDownItems.add(element.diachidiadiem);
         });
         hideLoadingDialog();
         print('_DeviceListScreenState.handleDevice ${dropDownItems.length}');
@@ -96,7 +96,7 @@ class _AddPatientScreenState extends State<AddPatientScreen> {
         tbs = response.id.map((e) => ThietBi.fromJson(e)).toList();
         dropDownItems.clear();
         tbs.forEach((element) {
-          dropDownItems.add(element.mathietbi);
+          dropDownItems.add(element.matb);
         });
         setState(() {});
         hideLoadingDialog();

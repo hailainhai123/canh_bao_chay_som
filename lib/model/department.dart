@@ -5,19 +5,21 @@ import 'package:floor/floor.dart';
 @entity
 class Department {
   @primaryKey
-  @ColumnInfo(name: 'vitri', nullable: false)
-  final String vitri;
-  @ColumnInfo(name: 'mavitri', nullable: false)
-  final String mavitri;
+  @ColumnInfo(name: 'diachidiadiem', nullable: false)
+  final String diachidiadiem;
+  @ColumnInfo(name: 'madiadiem', nullable: false)
+  final String madiadiem;
+  @ColumnInfo(name: 'sdtdiadiem', nullable: false)
+  final String sdtdiadiem;
   @ColumnInfo(name: 'mac', nullable: false)
   String mac;
 
 
-  Department(this.vitri, this.mavitri, this.mac);
+  Department(this.diachidiadiem, this.madiadiem, this.sdtdiadiem, this.mac);
 
-  String get departmentNameDecode {
+  String get departmentDiachiDecode {
     try {
-      String s = vitri;
+      String s = diachidiadiem;
       List<int> ints = List();
       s = s.replaceAll('[', '');
       s = s.replaceAll(']', '');
@@ -27,18 +29,20 @@ class Department {
       }
       return utf8.decode(ints);
     } catch (e) {
-      return vitri;
+      return diachidiadiem;
     }
   }
 
   Department.fromJson(Map<String, dynamic> json)
-      : vitri = json['vitri'],
-        mavitri = json['mavitri'],
+      : diachidiadiem = json['diachidiadiem'],
+        madiadiem = json['madiadiem'],
+        sdtdiadiem = json['sdtdiadiem'],
         mac = json['mac'];
 
   Map<String, dynamic> toJson() => {
-        'vitri': vitri,
-        'mavitri': mavitri,
+        'diachidiadiem': diachidiadiem,
+        'madiadiem': madiadiem,
+        'sdtdiadiem': sdtdiadiem,
         'mac': mac,
       };
 // Room.fromJson(Map<String, dynamic> json)

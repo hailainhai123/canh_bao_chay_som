@@ -1,29 +1,36 @@
+import 'package:flutter/cupertino.dart';
+
 class ThietBi {
-  String mathietbi;
-  String makhoa;
+  String matb;
+  String madiadiem;
   String trangthai;
-  String nguong;
+  String nguongcb;
   String vitri;
   String thoigian;
+  String nhietdo;
   String mac;
+  Color color;
+  List<dynamic> id;
 
-  ThietBi(this.mathietbi, this.makhoa, this.trangthai, this.nguong,
+  ThietBi(this.matb, this.madiadiem, this.trangthai, this.nguongcb,
       this.thoigian, this.mac, this.vitri);
 
   ThietBi.fromJson(Map<String, dynamic> json)
-      : mathietbi = json['mathietbi'],
-        makhoa = json['makhoa'],
+      : matb = json['matb'],
+        madiadiem = json['madiadiem'],
         trangthai = json['trangthai'],
-        nguong = json['nguong'],
+        nguongcb = json['nguongcb'],
         vitri = json['vitri'],
         thoigian = json['thoigian'],
+        nhietdo = json['nhietdo'],
         mac = json['mac'];
 
   Map<String, dynamic> toJson() => {
-        'mathietbi': mathietbi,
-        'makhoa': makhoa,
+        'matb': matb,
+        'madiadiem': madiadiem,
         'trangthai': trangthai,
-        'nguong': nguong,
+        'nguongcb': nguongcb,
+        'nhietdo': nhietdo,
         'vitri': vitri,
         'thoigian': thoigian,
         'mac': mac,
@@ -31,6 +38,6 @@ class ThietBi {
 
   @override
   String toString() {
-    return '$mathietbi - $makhoa - $nguong - $vitri - $thoigian';
+    return '$matb - $madiadiem - $nguongcb - $vitri - $thoigian';
   }
 }

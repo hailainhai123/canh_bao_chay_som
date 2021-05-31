@@ -6,6 +6,7 @@ import 'package:health_care/helper/constants.dart';
 import 'package:health_care/helper/shared_prefs_helper.dart';
 import 'package:health_care/main/department_list_screen.dart';
 import 'package:health_care/main/detail_page.dart';
+import 'package:health_care/main/detail_screen.dart';
 import 'package:health_care/main/device_list_screen.dart';
 import 'package:health_care/main/home_page.dart';
 import 'package:health_care/main/user_list_screen.dart';
@@ -90,8 +91,14 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(
               Icons.meeting_room_outlined,
             ),
-            label: 'Vị trí',
+            label: 'Địa điểm',
           ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(
+          //     Icons.details,
+          //   ),
+          //   label: 'Giám sát',
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add),
             label: 'Thêm',
@@ -109,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icons.account_circle_outlined, label: 'Cảnh báo'),
           CustomBottomNavigationItem(icon: Icons.menu, label: 'Thiết bị'),
           CustomBottomNavigationItem(
-              icon: Icons.meeting_room_outlined, label: 'Vị trí'),
+              icon: Icons.meeting_room_outlined, label: 'Địa điểm '),
           CustomBottomNavigationItem(icon: Icons.add, label: 'Thêm'),
           CustomBottomNavigationItem(
               icon: Icons.account_box_outlined, label: 'Cá nhân'),
@@ -163,6 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // HomePage(),
           DeviceListScreen(),
           DepartmentListScreen(),
+          // DetailScreen(),
           AddScreen(),
           UserProfilePage(
             quyen: '1',

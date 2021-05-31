@@ -78,7 +78,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
   }
 
   void getDepartment() {
-    Department d = Department('', '', Constants.mac);
+    Department d = Department('', '','', Constants.mac);
     pubTopic = GET_DEPARTMENT;
     publishMessage(pubTopic, jsonEncode(d));
     showLoadingDialog();
@@ -430,7 +430,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
         departments = response.id.map((e) => Department.fromJson(e)).toList();
         dropDownItems.clear();
         departments.forEach((element) {
-          dropDownItems.add(element.mavitri);
+          dropDownItems.add(element.madiadiem);
         });
         hideLoadingDialog();
         print('_DeviceListScreenState.handleDevice ${dropDownItems.length}');
