@@ -35,6 +35,7 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
   @override
   void initState() {
     initMqtt();
+    // tbs.add(ThietBi('matb', 'madiadiem', 'trangthai', 'nguongcb', 'thoigian', 'mac', 'tu'));
     // isLoading = false;
     super.initState();
   }
@@ -141,7 +142,7 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
           verticalLine(),
           buildTextLabel('Ngưỡng', 2),
           verticalLine(),
-          buildTextLabel('Vị trí', 2),
+          buildTextLabel('VỊ trí', 2),
         ],
       ),
     );
@@ -196,7 +197,7 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
                   verticalLine(),
                   buildTextData('${tbs[index].nguongcb}\u2103', 2),
                   verticalLine(),
-                  buildTextData('${tbs[index].vitri}', 2),
+                  buildTextData('${tbs[index].tu}', 2),
                 ],
               ),
             ),

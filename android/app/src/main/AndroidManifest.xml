@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.techno.health_care">
+    package="com.techno.canh_bao_chay">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -11,7 +11,7 @@
 
     <application
         android:icon="@mipmap/ic_launcher"
-        android:label="Techno HealthCare">
+        android:label="TechnoCanhBaoChay">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

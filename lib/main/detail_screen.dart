@@ -143,7 +143,7 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
         child: Column(
           children: [
-            Text(tb.vitri,
+            Text(tb.tu ?? "",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: tb.color ?? Colors.black,

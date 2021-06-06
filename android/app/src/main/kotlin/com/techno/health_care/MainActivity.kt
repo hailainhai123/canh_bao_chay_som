@@ -1,4 +1,4 @@
-package com.techno.health_care
+package com.techno.canh_bao_chay
 
 import io.flutter.embedding.android.FlutterActivity
 

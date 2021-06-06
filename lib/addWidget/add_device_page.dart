@@ -77,7 +77,7 @@ class _AddDeviceScreenState extends State<AddDeviceScreen> {
                   idController,
                 ),
                 buildTextField(
-                  'vị trí',
+                  'Vị trí',
                   Icon(Icons.email),
                   TextInputType.text,
                   vitriController,

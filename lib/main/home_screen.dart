@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(
               Icons.meeting_room_outlined,
             ),
-            label: 'Địa điểm',
+            label: 'địa điểm',
           ),
           // BottomNavigationBarItem(
           //   icon: Icon(
@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icons.account_circle_outlined, label: 'Cảnh báo'),
           CustomBottomNavigationItem(icon: Icons.menu, label: 'Thiết bị'),
           CustomBottomNavigationItem(
-              icon: Icons.meeting_room_outlined, label: 'Địa điểm '),
+              icon: Icons.meeting_room_outlined, label: 'địa điểm'),
           CustomBottomNavigationItem(icon: Icons.add, label: 'Thêm'),
           CustomBottomNavigationItem(
               icon: Icons.account_box_outlined, label: 'Cá nhân'),

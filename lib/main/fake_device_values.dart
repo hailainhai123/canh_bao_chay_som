@@ -10,7 +10,7 @@ List<ThietBi> createSampleDevices() {
     var randomId = Random().nextInt(120);
     ThietBi tb = ThietBi('a1','','','','','','');
     tb.nguongcb = '20';
-    tb.vitri = 'abc';
+    tb.tu = 'abc';
 
     devices.add(tb);
   }

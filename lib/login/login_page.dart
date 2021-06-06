@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:health_care/Widget/bezierContainer.dart';
 import 'package:health_care/addWidget/patient_page.dart';
+import 'package:health_care/helper/constants.dart';
 import 'package:health_care/helper/loader.dart';
 import 'package:health_care/helper/models.dart';
 import 'package:health_care/helper/shared_prefs_helper.dart';
@@ -69,13 +70,17 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void initOneSignal(oneSignalAppId) async {
-    status = await OneSignal.shared.getPermissionSubscriptionState();
-
     var settings = {
       OSiOSSettings.autoPrompt: true,
       OSiOSSettings.inAppLaunchUrl: true
     };
-    OneSignal.shared.init(oneSignalAppId, iOSSettings: settings);
+    OneSignal.shared.init(
+      one_signal_app_id,
+      iOSSettings: settings,
+    );
+
+    status = await OneSignal.shared.getPermissionSubscriptionState();
+
     OneSignal.shared
         .setInFocusDisplayType(OSNotificationDisplayType.notification);
 // will be called whenever a notification is received
@@ -125,6 +130,7 @@ class _LoginPageState extends State<LoginPage> {
       }
     });
     try {
+
       playerid = await status.subscriptionStatus.userId;
     } catch (e) {
       print('_LoginPageState._tryLogin error: ${e.toString()}');

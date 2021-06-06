@@ -55,7 +55,7 @@ class _AddDepartmentScreenState extends State<AddDepartmentScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Thêm khoa',
+          'Thêm địa điểm',
         ),
         centerTitle: true,
       ),
