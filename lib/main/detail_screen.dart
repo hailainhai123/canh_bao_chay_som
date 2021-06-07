@@ -143,7 +143,7 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
         child: Column(
           children: [
-            Text(tb.tu ?? "",
+            Text(tb.vitri ?? "",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: tb.color ?? Colors.black,
@@ -152,7 +152,15 @@ class _DetailScreenState extends State<DetailScreen> {
             // Text(
             //   tb.nhietdo != null ? '${tb.nhietdo}\u2103' : '0\u2103',
             // ),
-            sleek(tb.nhietdo ?? "0"),
+            // sleek(tb.nhietdo ?? "0"),
+            Container(
+              height: 80,
+              width: 80,
+              child: Image.asset(
+                'assets/images/ic_flame_warning.png',
+                fit: BoxFit.cover,
+              ),
+            ),
             // Image.asset(
             //   'assets/icons/ic_scale.png',
             //   width: 40,

@@ -5,7 +5,7 @@ class ThietBi {
   String madiadiem;
   String trangthai;
   String nguongcb;
-  String tu;
+  String vitri;
   String thoigian;
   String nhietdo;
   String mac;
@@ -13,14 +13,14 @@ class ThietBi {
   List<dynamic> id;
 
   ThietBi(this.matb, this.madiadiem, this.trangthai, this.nguongcb,
-      this.thoigian, this.mac, this.tu);
+      this.thoigian, this.mac, this.vitri);
 
   ThietBi.fromJson(Map<String, dynamic> json)
       : matb = json['matb'],
         madiadiem = json['madiadiem'],
         trangthai = json['trangthai'],
         nguongcb = json['nguongcb'],
-        tu = json['tu'],
+        vitri = json['vitri'],
         thoigian = json['thoigian'],
         nhietdo = json['nhietdo'],
         mac = json['mac'];
@@ -31,13 +31,13 @@ class ThietBi {
         'trangthai': trangthai,
         'nguongcb': nguongcb,
         'nhietdo': nhietdo,
-        'tu': tu,
+        'vitri': vitri,
         'thoigian': thoigian,
         'mac': mac,
       };
 
   @override
   String toString() {
-    return '$matb - $madiadiem - $nguongcb - $tu - $thoigian';
+    return '$matb - $madiadiem - $nguongcb - $vitri - $thoigian';
   }
 }

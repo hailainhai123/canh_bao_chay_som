@@ -197,7 +197,7 @@ class _DeviceListScreenState extends State<DeviceListScreen> {
                   verticalLine(),
                   buildTextData('${tbs[index].nguongcb}\u2103', 2),
                   verticalLine(),
-                  buildTextData('${tbs[index].tu}', 2),
+                  buildTextData('${tbs[index].vitri}', 2),
                 ],
               ),
             ),

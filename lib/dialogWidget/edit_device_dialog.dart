@@ -76,7 +76,7 @@ class _EditDeviceDialogState extends State<EditDeviceDialog> {
     currentSelectedValue = widget.thietbi.madiadiem;
     timeController.text = widget.thietbi.thoigian;
     thresholdController.text = widget.thietbi.nguongcb;
-    vitriController.text = widget.thietbi.tu;
+    vitriController.text = widget.thietbi.vitri;
   }
 
   @override
@@ -259,7 +259,7 @@ class _EditDeviceDialogState extends State<EditDeviceDialog> {
                       '',
                       '',
                       Constants.mac,
-                      widget.thietbi.tu,
+                      widget.thietbi.vitri,
                     );
                     publishMessage(pubTopic, jsonEncode(d));
                   },
